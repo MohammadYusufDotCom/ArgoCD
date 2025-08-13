@@ -1,6 +1,6 @@
 # Default values for argocd-helm.
 # Declare variables to be passed into your templates.
-replicaCount: 3
+replicaCount: 2
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
