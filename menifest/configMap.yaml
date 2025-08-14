@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+  labels:
+    app: nginx
+data:
+  PASSWORD: "mypassword123"
+  index.html: |
+    <h1>Mohammad Yusuf gettting hit from server</h1>
+    <h4>App is working fine.</h4>
