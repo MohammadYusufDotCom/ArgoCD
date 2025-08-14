@@ -13,28 +13,28 @@ spec:
     metadata:
       labels:
         app: nginx
-    volumes:
-      - name: config
-        configMap:
-          name: nginx-configmap
-          items:
-            - key: index.html
     spec:
-      - containers:
-        name: nginx
-        image: nginx:latest
-        env:
-          - name: "PASSWORD"
-            valueFrom:
-              configMapKeyRef:
-                name: nginx-configmap
-                key: PASSWORD
-        ports:
-          - name: http
-            containerPort: 80
-            protocol: TCP
-        volumeMounts:
-          - name: config
-            mountPath: "/usr/share/nginx/html"
-            subPath: index.html
+      volumes:
+        - name: config
+          configMap:
+            name: nginx-configmap
+            items:
+              - key: index.html
+      containers:
+        - name: nginx
+          image: nginx:latest
+          env:
+            - name: "PASSWORD"
+              valueFrom:
+                configMapKeyRef:
+                  name: nginx-configmap
+                  key: PASSWORD
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: "/usr/share/nginx/html/index.html"
+              subPath: index.html
 
