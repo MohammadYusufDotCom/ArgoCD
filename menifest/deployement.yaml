@@ -18,8 +18,6 @@ spec:
         - name: config
           configMap:
             name: nginx-configmap
-            items:
-              - key: index.html
       containers:
         - name: nginx
           image: nginx:latest
