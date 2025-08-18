@@ -3,6 +3,7 @@
 {{- if not .Values.controller.enableAnnotationValidations }}
 - --enable-annotation-validation=false
 {{- end }}
+- --enable-ssl-passthrough
 {{- if .Values.defaultBackend.enabled }}
 - --default-backend-service=$(POD_NAMESPACE)/{{ include "ingress-nginx.defaultBackend.fullname" . }}
 {{- end }}
